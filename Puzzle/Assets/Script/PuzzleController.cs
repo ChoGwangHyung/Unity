@@ -47,7 +47,7 @@ public class PuzzleController : MonoBehaviour
         //initialize
         int[] block_kind = new int[3];
         for (int i = 0; i < 3; i++)
-            block_kind[i] = 0;
+            block_kind[i] = 0;             
 
         for (int x = 0; x < 3; x++)
         {
@@ -85,6 +85,7 @@ public class PuzzleController : MonoBehaviour
                 }
             }
         }
+        
 
         check_block = 0;
         score = 0;

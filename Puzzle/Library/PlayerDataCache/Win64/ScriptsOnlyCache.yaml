@@ -45,11 +45,13 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11170}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 11512}
+    - Class: 114
+      Script: {instanceID: 13626}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -57,6 +59,8 @@ ScriptsOnlyBuild:
     - Class: 157
       Script: {instanceID: 0}
     - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
       Script: {instanceID: 0}
     - Class: 222
       Script: {instanceID: 0}
@@ -82,21 +86,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11170}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 13440}
+      Script: {instanceID: 13442}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14248}
+      Script: {instanceID: 14250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -135,19 +139,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11170}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 13692}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 13726}
+      Script: {instanceID: 13694}
     - Class: 114
-      Script: {instanceID: 14248}
+      Script: {instanceID: 13728}
+    - Class: 114
+      Script: {instanceID: 14250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -188,21 +194,21 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 11170}
+      Script: {instanceID: 11172}
     - Class: 114
-      Script: {instanceID: 11456}
+      Script: {instanceID: 11458}
     - Class: 114
-      Script: {instanceID: 11510}
+      Script: {instanceID: 11512}
     - Class: 114
-      Script: {instanceID: 12170}
+      Script: {instanceID: 12172}
     - Class: 114
-      Script: {instanceID: 12866}
+      Script: {instanceID: 12868}
     - Class: 114
-      Script: {instanceID: 13440}
+      Script: {instanceID: 13442}
     - Class: 114
-      Script: {instanceID: 13624}
+      Script: {instanceID: 13626}
     - Class: 114
-      Script: {instanceID: 14248}
+      Script: {instanceID: 14250}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -718,4 +724,5 @@ ScriptsOnlyBuild:
   - Assets/Scenes/Main.unity
   - Assets/Scenes/End.unity
   - Assets/Scenes/Clear.unity
-  playerPath: "C:/Users/\uC870\uAD11\uD615/Desktop/Puzzle Build/Puzzle.exe"
+  playerPath: "C:/Users/\uC870\uAD11\uD615/Desktop/\uACFC\uC81C/\uD300\uD504/Puzzle/Puzzle
+    Build/Puzzle.exe"
