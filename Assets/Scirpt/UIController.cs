@@ -23,7 +23,6 @@ public class UIController : MonoBehaviour
 
     public GameObject[] WhatPlayer = new GameObject[3];
     public Image[] whatPlayer = new Image[3];
-    public Image[] BackGruond = new Image[3];
     public bool rotate;
     float rotateVal;
     int playerMax;
@@ -69,6 +68,9 @@ public class UIController : MonoBehaviour
         bossCreateTime = 5.5f;
         bossStageStart = true;
         bossFailTime = 0.0f;
+
+        if (GameObject.Find("DataController").GetComponent<DataController>().Get_playerSeq() == 2)
+            remainDash.gameObject.SetActive(true);
     }
 
     void Update()
@@ -138,7 +140,8 @@ public class UIController : MonoBehaviour
 
         #region 슬라이더
         //대쉬
-        remainDash.value = GameObject.Find("Player").transform.Find("Speed").GetComponent<SpeedCharacter>().dash / dashMax;
+        if (remainDash.gameObject.activeSelf == true)
+            remainDash.value = GameObject.Find("Player").transform.Find("Speed").GetComponent<SpeedCharacter>().dash / dashMax;
         //맵
         playerPos = GameObject.Find("Player").GetComponent<PlayerController>().Player
            [GameObject.Find("Player").GetComponent<PlayerController>().player_seq].transform.position.z;
@@ -157,18 +160,15 @@ public class UIController : MonoBehaviour
 
         if (playerMax == 1)
         {
-            WhatPlayer[1].transform.rotation = Quaternion.Euler(0, 0, rotateVal);
-            for (int i = 0; i < 2; i++)
-                whatPlayer[i].transform.rotation = Quaternion.Euler(0, 0, 0);
+            WhatPlayer[1].transform.rotation = Quaternion.Euler(0, rotateVal, 0);
             rotateVal += 30;
+
             if (GameObject.Find("Player").GetComponent<PlayerController>().player_seq == 1)
             {
                 if (rotateVal == 210)
                 {
-                    BackGruond[0].enabled = false;
-                    BackGruond[1].enabled = true;
-                    BackGruond[1].transform.rotation = Quaternion.Euler(0, 0, 0);
                     rotate = false;
+                    whatPlayer[1].transform.SetAsLastSibling();
                     return;
                 }
             }
@@ -177,11 +177,9 @@ public class UIController : MonoBehaviour
             {
                 if (rotateVal == 390)
                 {
-                    BackGruond[1].enabled = false;
-                    BackGruond[0].enabled = true;
-                    BackGruond[0].transform.rotation = Quaternion.Euler(0, 0, 0);
                     rotateVal = 0;
                     rotate = false;
+                    whatPlayer[0].transform.SetAsLastSibling();
                     return;
                 }
             }
@@ -189,19 +187,17 @@ public class UIController : MonoBehaviour
 
         if (playerMax == 2)
         {
-            WhatPlayer[2].transform.rotation = Quaternion.Euler(0, 0, rotateVal);
+            WhatPlayer[2].transform.rotation = Quaternion.Euler(0, rotateVal, 0);
             for (int i = 0; i < 3; i++)
-                whatPlayer[i].transform.rotation = Quaternion.Euler(0, 0, 0);
+                whatPlayer[i].gameObject.SetActive(true);
             rotateVal += 20;
 
             if (GameObject.Find("Player").GetComponent<PlayerController>().player_seq == 1)
             {
                 if (rotateVal == 140)
                 {
-                    BackGruond[0].enabled = false;
-                    BackGruond[1].enabled = true;
-                    BackGruond[1].transform.rotation = Quaternion.Euler(0, 0, 0);
                     rotate = false;
+                    whatPlayer[1].transform.SetAsLastSibling();
                     return;
                 }
             }
@@ -210,10 +206,8 @@ public class UIController : MonoBehaviour
             {
                 if (rotateVal == 260)
                 {
-                    BackGruond[1].enabled = false;
-                    BackGruond[2].enabled = true;
-                    BackGruond[2].transform.rotation = Quaternion.Euler(0, 0, 0);
                     rotate = false;
+                    whatPlayer[2].transform.SetAsLastSibling();
                     return;
                 }
             }
@@ -222,11 +216,9 @@ public class UIController : MonoBehaviour
             {
                 if (rotateVal == 380)
                 {
-                    BackGruond[2].enabled = false;
-                    BackGruond[0].enabled = true;
-                    BackGruond[0].transform.rotation = Quaternion.Euler(0, 0, 0);
                     rotateVal = 0;
                     rotate = false;
+                    whatPlayer[0].transform.SetAsLastSibling();
                     return;
                 }
             }
@@ -253,11 +245,6 @@ public class UIController : MonoBehaviour
             WhatPlayer[0].SetActive(false);
             WhatPlayer[2].SetActive(false);
 
-            BackGruond[0] = WhatPlayer[1].transform.Find("BackgroundJump").GetComponent<Image>();
-            BackGruond[1] = WhatPlayer[1].transform.Find("BackgroundPower").GetComponent<Image>();
-            BackGruond[0].enabled = true;
-            BackGruond[1].enabled = false;
-
             whatPlayer[0] = WhatPlayer[1].transform.Find("Jump").GetComponent<Image>();
             whatPlayer[1] = WhatPlayer[1].transform.Find("Power").GetComponent<Image>();
         }
@@ -267,13 +254,6 @@ public class UIController : MonoBehaviour
             WhatPlayer[2].SetActive(true);
             WhatPlayer[0].SetActive(false);
             WhatPlayer[1].SetActive(false);
-
-            BackGruond[0] = WhatPlayer[2].transform.Find("BackgroundJump").GetComponent<Image>();
-            BackGruond[1] = WhatPlayer[2].transform.Find("BackgroundPower").GetComponent<Image>();
-            BackGruond[2] = WhatPlayer[2].transform.Find("BackgroundSpeed").GetComponent<Image>();
-            BackGruond[0].enabled = true;
-            BackGruond[1].enabled = false;
-            BackGruond[2].enabled = false;
 
             whatPlayer[0] = WhatPlayer[2].transform.Find("Jump").GetComponent<Image>();
             whatPlayer[1] = WhatPlayer[2].transform.Find("Power").GetComponent<Image>();
@@ -291,7 +271,7 @@ public class UIController : MonoBehaviour
         }
         else
         {
-            float bossPos = GameObject.Find("Boss").transform.position.z*1.14f;
+            float bossPos = GameObject.Find("Boss").transform.position.z * 1.14f;
             bossImage.transform.position = new Vector3(520 + bossPos, 142, 0);
             float monsterPos = GameObject.Find("FollowMonster").transform.position.z * 1.14f;
             monsterImage.transform.position = new Vector3(490 + monsterPos, 142, 0);
@@ -307,13 +287,13 @@ public class UIController : MonoBehaviour
     }
 
     void BossCreate()
-    {  
+    {
         bossCreateTime -= Time.deltaTime;
 
         if (bossCreateTime <= 0)
         {
             GameObject.Find("UI").transform.Find("BossExplain").gameObject.SetActive(false);
             bossStageStart = false;
-        }        
+        }
     }
 }
